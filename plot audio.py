@@ -1,4 +1,4 @@
-from scipy.io.wavfile import read
+from scipy.io.wavfile import read, write
 import matplotlib.pyplot as plt
 import numpy as np
 import wave
@@ -21,29 +21,48 @@ print("Files in %r: %s" % (cwd, files))
 plt.rcParams["figure.figsize"] = [7.50, 3.50]
 plt.rcParams["figure.autolayout"] = True
 
-vocals = read('Viva la Vida Vocals Mono.wav', 'rb')[1]
-instrumental = read("Viva la Vida Instrumental Mono.wav")[1]
+vocals = read('Viva la Vida Vocals Mono.wav', 'rb')[1] #read(open('Viva la Vida Vocals Mono.wav', 'r')) #read('Viva la Vida Vocals Mono.wav', 'rb')[1]
+instrumental = read("Viva la Vida Instrumental Mono.wav")[1] #read(open("Viva la Vida Instrumental Mono.wav", 'r'))[1] #read("Viva la Vida Instrumental Mono.wav")[1]
 plt.plot(vocals[:1000_000])
 plt.plot(instrumental[:1000_000])
 plt.ylabel("Amplitude")
 plt.xlabel("Time")
 plt.show()
 
-obj = wave.open('Viva La Vida 2zip.wav','w')
-obj.setnchannels(1) # mono
-obj.setsampwidth(2)
-obj.setframerate(44100.0)
+#obj = wave.open('Viva La Vida 2zip.wav','w')
+#obj.setnchannels(1) # mono
+#obj.setsampwidth(2)
+#obj.setframerate(44100.0)
 
 shortest = vocals if len(vocals) < len(instrumental) else instrumental
 longest = vocals if len(vocals) > len(instrumental) else instrumental
 
-merged = zip(vocals, instrumental)
+merged = np.asarray(list(zip(vocals, instrumental))).flatten()
+
+"""
+a b c d e
+1 2 3 4 5 6 7
+
+a 1 b 2 c 3 d 4 e 5   + 6 7
+
+"""
 
 
+print()
+print(type(merged))
+print(merged)
+print(merged[:100])
+print(longest[len(shortest):len(shortest)+100])
 
-for i in range(idx, len(longest)):
-   value = longest[i]
-   data = struct.pack('<h', value)
-   obj.writeframesraw( data )
+merged = np.concatenate((merged, longest[len(shortest):]))
+print(merged.size * merged.itemsize)
+merged = merged.astype('int16')
+print(merged.size * merged.itemsize)
 
-obj.close()
+write('merged.wav', 44_100, merged)
+
+merged_signal = read("merged.wav")[1]
+plt.plot(merged_signal[:1000_000])
+plt.ylabel("Amplitude")
+plt.xlabel("Time")
+plt.show()
