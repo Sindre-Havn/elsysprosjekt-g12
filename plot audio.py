@@ -55,9 +55,9 @@ print(merged[:100])
 print(longest[len(shortest):len(shortest)+100])
 
 merged = np.concatenate((merged, longest[len(shortest):]))
-print(merged.size * merged.itemsize)
+print(merged.size * merged.itemsize, merged.itemsize)
 merged = merged.astype('int16')
-print(merged.size * merged.itemsize)
+print(merged.size * merged.itemsize, merged.itemsize)
 
 write('merged.wav', 44_100, merged)
 
