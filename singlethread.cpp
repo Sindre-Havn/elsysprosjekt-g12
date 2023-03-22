@@ -5,7 +5,6 @@ using namespace std;		// No need to keep using “std”
 
 int main()
 {
-wiringPiSetup();			// Setup the library
 gpioSetMode(2, PI_OUTPUT);
 gpioSetMode(3, PI_OUTPUT);
 
@@ -19,10 +18,10 @@ while(1)
 	// Toggle the LED
 	gpioWrite(2, 1);
 	gpioWrite(3, 1);
-    delay(halfwave);
+    sleep(halfwave);
 	gpioWrite(2, 0);
 	gpioWrite(3, 0);
-    delay(halfwave);
+    sleep(halfwave);
 }
 
 	return 0;
