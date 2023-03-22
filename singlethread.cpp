@@ -1,5 +1,7 @@
 #include <iostream>		// Include all needed libraries here
 #include <pigpio.h>
+#include <chrono>
+#include <thread>
 
 using namespace std;		// No need to keep using “std”
 
@@ -18,10 +20,12 @@ while(1)
 	// Toggle the LED
 	gpioWrite(2, 1);
 	gpioWrite(3, 1);
-    Sleep(halfwave);
+    std::this_thread::sleep_for(std::chrono::milliseconds(halfwave));
+
 	gpioWrite(2, 0);
 	gpioWrite(3, 0);
-    Sleep(halfwave);
+    std::this_thread::sleep_for(std::chrono::milliseconds(halfwave));
+
 }
 
 	return 0;
