@@ -1,4 +1,5 @@
 #include <iostream>		// Include all needed libraries here
+#include <pigpio.h>
 
 using namespace std;		// No need to keep using “std”
 
@@ -8,7 +9,7 @@ wiringPiSetup();			// Setup the library
 gpioSetMode(2, PI_OUTPUT);
 gpioSetMode(3, PI_OUTPUT);
 
-int frequency = 1_000_000; // Hz
+int frequency = 1000000; // Hz
 double wavelength = 1/frequency; // Hz
 double halfwave = wavelength/2;
 
