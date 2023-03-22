@@ -20,11 +20,30 @@ sjekk tracks: hvor mange mono og stereo?
 speaker_count = 4
 track_count = None
 
+def fetch_song():
+    """
+    Get usb path
+    /media/pi/
+    utenom 'system Volume Information'
+    """
+    songs = dict()
+    for song in usb:
+        songs[song] = 
+        
+
+def preprocess_song(song):
+    song = read('Viva la Vida Vocals Mono.wav', 'rb')
+
 
 
 def main():
-    # 
-    pass
+    """
+    speaker_count = 4
+    files = dict(navn : filepath)
+    last_5_songs = list() # Sørger for at ny shuffle liste ikke blir for repetitiv
+    play_order = shuffle(files, last_5_songs)
+    """
+
 
 
 
