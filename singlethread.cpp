@@ -18,10 +18,10 @@ while(1)
 	// Toggle the LED
 	gpioWrite(2, 1);
 	gpioWrite(3, 1);
-    sleep(halfwave);
+    Sleep(halfwave);
 	gpioWrite(2, 0);
 	gpioWrite(3, 0);
-    sleep(halfwave);
+    Sleep(halfwave);
 }
 
 	return 0;
