@@ -4,7 +4,7 @@ import time
 
 exitFlag = 0
 
-frequency = 10 # Hz
+frequency = 10_000_000 # Hz
 wavelength = 1/frequency
 halfwave = wavelength / 2
 gpio2 = 2
