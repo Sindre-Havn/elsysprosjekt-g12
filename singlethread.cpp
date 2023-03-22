@@ -1,5 +1,4 @@
 #include <iostream>		// Include all needed libraries here
-#include <wiringPi.h>
 
 using namespace std;		// No need to keep using “std”
 
@@ -9,9 +8,9 @@ wiringPiSetup();			// Setup the library
 gpioSetMode(2, PI_OUTPUT);
 gpioSetMode(3, PI_OUTPUT);
 
-frequency = 1_000_000; // Hz
-wavelength = 1/frequency; // Hz
-halfwave = wavelength/2;
+int frequency = 1_000_000; // Hz
+double wavelength = 1/frequency; // Hz
+double halfwave = wavelength/2;
 
 // Main program loop
 while(1)
