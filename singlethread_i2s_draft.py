@@ -13,10 +13,8 @@ GPIO.setup(gpio3,GPIO.OUT,initial=GPIO.LOW)
 
 while True:
     GPIO.output(gpio2,GPIO.HIGH)
-    time.sleep(halfwave)
     GPIO.output(gpio3,GPIO.HIGH)
     time.sleep(halfwave)
     GPIO.output(gpio2,GPIO.LOW)
     time.sleep(halfwave)
-    GPIO.output(gpio3,GPIO.LOW)
     time.sleep(halfwave)
