@@ -25,11 +25,11 @@ int main() {
     gettimeofday(&before, NULL);
    
     for (int i = 0; i <1e2 ; i++) {
-      sleep_micro(micro)
+      sleep_micro(micros);
       gettimeofday(&after, NULL);
       printf("Time taken to count to 10^5 is : %ld micro seconds\n",
         ((end.tv_sec * 1000000 + end.tv_usec) -
-        (start.tv_sec * 1000000 + start.tv_usec)));
+        (before.tv_sec * 1000000 + before.tv_usec)));
     }
   
     return 0;
