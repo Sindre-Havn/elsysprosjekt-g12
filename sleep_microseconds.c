@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 
-void sleep_micro(uint32_t micro_seconds) {
+void sleep_micro(unsigned long int micro_seconds) {
     struct timeval start, end;
     gettimeofday(&start, NULL);
  
@@ -20,7 +20,7 @@ void sleep_micro(uint32_t micro_seconds) {
  
 int main() {
     
-    uint32_t micros = 100;
+    unsigned long int micros = 100;
     struct timeval before, after;
     gettimeofday(&before, NULL);
    
