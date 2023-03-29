@@ -13,6 +13,10 @@ int main() {
   printf("Time taken to count to 10^5 is : %ld micro seconds\n",
     ((end.tv_sec * 1000000 + end.tv_usec) -
     (start.tv_sec * 1000000 + start.tv_usec)));
+  printf(end.tv_sec * 1000000);
+  printf(end.tv_usec);
+  printf(start.tv_sec * 1000000);
+  printf(start.tv_usec);
 
   return 0;
 }
