@@ -14,7 +14,7 @@ void sleep_micro(unsigned long int micro_seconds) {
             (start.tv_sec * 1000000 + start.tv_usec) > micro_seconds) {
                 break;
             }
-    } while (true);
+    } while (1);
 
 }
  
@@ -28,7 +28,7 @@ int main() {
       sleep_micro(micros);
       gettimeofday(&after, NULL);
       printf("Time taken to count to 10^5 is : %ld micro seconds\n",
-        ((end.tv_sec * 1000000 + end.tv_usec) -
+        ((before.tv_sec * 1000000 + before.tv_usec) -
         (before.tv_sec * 1000000 + before.tv_usec)));
     }
   
